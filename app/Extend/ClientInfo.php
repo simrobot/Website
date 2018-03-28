@@ -130,7 +130,9 @@ class ClientInfo {
             }
         }
  
-        $tip = empty($_SERVER['REMOTE_ADDR']) ? $ip : $_SERVER['REMOTE_ADDR'];
+		$tip = empty($_SERVER['REMOTE_ADDR']) ? $ip : $_SERVER['REMOTE_ADDR'];
+
+
         if($tip=="127.0.0.1"){
             return "";
         }else{

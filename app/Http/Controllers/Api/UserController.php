@@ -5,20 +5,53 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Extend\Ms_Result;
 use App\Entity\User;
-
+use Session;
 use DB;
 /*
  * @Author: Kyle Liu 
  * @Date: 2018-03-27 15:09:28 
  * @Last Modified by: Kyle Liu
- * @Last Modified time: 2018-03-27 15:59:54
+ * @Last Modified time: 2018-03-28 13:00:44
  * Descriptions: 
 */
 class UserController extends Controller
 {
     public function login(Request $request){
-        $res = new MS_Result;
-        dd($res->toJson());
+        $ms = new MS_Result;
+        $ms->status = 1;
+        $ms->message = "系统错误！";
+
+        $sEmail = $request->input("email");
+        $sPassword = $request->input("password");
+
+        // 判断用户是否存在
+        if(!User::where('email','=',$sEmail)->exists()){
+            $ms->status = 2;
+            $ms->message = "用户不错在！";
+            return $ms->toJson();
+        }
+
+        // 验证密码
+        $user = User::where('email','=',$sEmail)->find(1);
+        if(strcmp( decrypt($user->password) , $sPassword)){
+            $ms->status = 2;
+            $ms->message = "密码错误！";
+            $ms->data = null;
+            return $ms->toJson();
+        }
+
+        $ms->status = 0;
+        $ms->message = "登录成功";
+        Session::put('isLogin',encrypt(1));
+        return $ms->toJson();   
+    }
+    public function loginout(Request $request){
+        $ms = new MS_Result;
+        $ms->status = 0;
+        $ms->message = "注销成功！";
+        $ms->data = $request;
+        Session::forget('isLogin');
+        return $ms->toJson();
     }
     public function register(Request $request){
         $ms = new MS_Result;
@@ -60,6 +93,11 @@ class UserController extends Controller
             return $ms->toJson();
         }
 
+        //禁止注册 
+        $ms->status = 2;
+        $ms->message = "暂未开放注册!";
+        return $ms->toJson();
+
         // 添加用户
         // $id = DB::table("user")->insertGetId([
         //     'username' => $sName,
@@ -82,4 +120,5 @@ class UserController extends Controller
 
         return $ms->toJson();    
     }
+
 }

@@ -3,7 +3,8 @@
   
   <head>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="csrf-token" content="{{ csrf_token() }}">
     <title>SimRobot Studio</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
@@ -108,7 +109,7 @@
                     <div class="pull-left">
                       <a href="#" class="btn btn-default btn-flat">个人中心</a></div>
                     <div class="pull-right">
-                      <a href="#" class="btn btn-default btn-flat">退出登录</a></div>
+                      <a href="javascript:void(0)" class="btn btn-default btn-flat" id="loginout">退出登录</a></div>
                   </li>
                 </ul>
               </li>
@@ -266,8 +267,8 @@
               <!-- small box -->
               <div class="small-box bg-aqua">
                 <div class="inner">
-                  <h3>150</h3>
-                  <p>新的订单</p>
+                  <h3>{{ $count['ACCESS_NUMBER_TOTAL'] }}</h3>
+                  <p>网站总访问数量</p>
                 </div>
                 <div class="icon">
                   <i class="ion ion-bag"></i>
@@ -281,9 +282,8 @@
               <!-- small box -->
               <div class="small-box bg-green">
                 <div class="inner">
-                  <h3>53
-                    <sup style="font-size: 20px">%</sup></h3>
-                  <p>Bounce Rate</p>
+                  <h3>{{ $count['ACCESS_NUMBER_NOW_DAY'] }}</h3>
+                  <p>今日访问数量</p>
                 </div>
                 <div class="icon">
                   <i class="ion ion-stats-bars"></i>
@@ -297,7 +297,7 @@
               <!-- small box -->
               <div class="small-box bg-yellow">
                 <div class="inner">
-                  <h3>44</h3>
+                  <h3>{{ $count['TOTAL_USER_NUMBER'] }}</h3>
                   <p>注册的用户</p>
                 </div>
                 <div class="icon">
@@ -312,7 +312,7 @@
               <!-- small box -->
               <div class="small-box bg-red">
                 <div class="inner">
-                  <h3>65</h3>
+                  <h3>{{ $count['ACCESS_NUMBER_TOTAL'] }}</h3>
                   <p>网站访问量</p>
                 </div>
                 <div class="icon">
@@ -348,6 +348,47 @@
     <script src="{{asset('/vendor/admin/dist/js/adminlte.min.js')}}"></script>
     <!-- AdminLTE for demo purposes -->
     <script src="{{asset('/vendor/admin/dist/js/demo.js')}}"></script>
+    <script>
+
+
+	$(function(){
+		$("#loginout").click(function(){
+			loginout();
+		})
+	})
+
+     function loginout(){
+		
+		$.ajax({ 
+			url:'/api/user/loginout',
+			type:"POST",
+			cache: false,
+			dataType: 'JSON',
+			data:{ 
+				email:'sEmail',
+				password:'sPassword'
+			},
+			headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
+			success:function(data) {
+				// status=0 操作成功
+				if(!data['status']){
+					alert(data['message']);
+					location.pathname='/admin/login';
+				}else{
+					// status !=0 操作失败
+					alert(data['message']);
+				}
+
+			},
+			error:function() { 
+				//系统错误
+				console.log('系统错误');
+			}
+		});
+
+		return false;
+	}
+    </script>
   </body>
 
 </html>
