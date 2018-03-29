@@ -129,7 +129,7 @@
                 </p>
             </div>
             <div class="col-sm-3">
-                <h2>LESS/SASS Files</h2>
+                <h2>LESS/SASS</h2>
                 <p>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula
                     ut id elit. Morbi leo risus.</p>
                 <p>
