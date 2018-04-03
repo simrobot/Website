@@ -7,14 +7,18 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <!-- Add Your favicon here -->
-    <link rel="icon" href="favicon.ico">
+    <!--<link rel="icon" href="img/favicon.ico">-->
     <title>INSPINIA - Landing Page</title>
 
+    <title>SimRobot</title>
+
     <!-- Bootstrap core CSS -->
-    <link href="{{asset('/vendor/index/css/bootstrap.min.css')}}" rel="stylesheet">
+    <link href="./vendor/index/css/bootstrap.min.css" rel="stylesheet">
+
     <!-- Animation CSS -->
-    <link href="{{asset('/vendor/index/css/animate.min.css')}}" rel="stylesheet">
-    <link href="{{asset('/vendor/index/font-awesome/css/font-awesome.min.css')}}" rel="stylesheet">
+    <link href="./vendor/index/css/animate.min.css" rel="stylesheet">
+
+    <link href="./vendor/index/font-awesome/css/font-awesome.min.css" rel="stylesheet">
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -23,9 +27,8 @@
     <![endif]-->
 
     <!-- Custom styles for this template -->
-    <link href="{{asset('/vendor/index/css/style.css')}}" rel="stylesheet">
+    <link href="./vendor/index/css/style.css" rel="stylesheet">
 </head>
-
 <body id="page-top">
     <div class="navbar-wrapper">
         <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
@@ -33,33 +36,33 @@
                 <div class="navbar-header page-scroll">
                     <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false"
                         aria-controls="navbar">
-                        <span class="sr-only">Toggle navigation</span>
+                        <span class="sr-only">Toggle  navigations</span>
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="#">WEBAPPLAYERS</a>
+                    <a class="navbar-brand" href="#">SimRobot</a>
                 </div>
                 <div id="navbar" class="navbar-collapse collapse">
                     <ul class="nav navbar-nav navbar-right">
                         <li>
-                            <a class="page-scroll" href="#page-top">Home</a>
+                            <a class="page-scroll" href="#page-top">主页</a>
                         </li>
                         <li>
-                            <a class="page-scroll" href="#features">Features</a>
+                            <a class="page-scroll" href="#features">特色</a>
                         </li>
                         <li>
-                            <a class="page-scroll" href="#team">Team</a>
+                            <a class="page-scroll" href="#team">队伍</a>
                         </li>
                         <li>
-                            <a class="page-scroll" href="#testimonials">Testimonials</a>
+                            <a class="page-scroll" href="#timeline">工作经历</a>
                         </li>
-                        <li>
+                       <!--  <li>
                             <a class="page-scroll" href="#pricing">Pricing</a>
                         </li>
                         <li>
                             <a class="page-scroll" href="#contact">Contact</a>
-                        </li>
+                        </li> -->
                     </ul>
                 </div>
             </div>
@@ -74,18 +77,18 @@
             <div class="item active">
                 <div class="container">
                     <div class="carousel-caption">
-                        <h1>We craft
-                            <br/> brands, web apps,
-                            <br/> and user interfaces
-                            <br/> we are IN+ studio</h1>
-                        <p>Lorem Ipsum is simply dummy text of the printing.</p>
+                        <h1>我们的实验室
+                            <br/> 管理制度化
+                            <br/> 开发规范化
+                            <br/> 学习科学化</h1>
+                        <p>实验室以开发软件以及研究算法为主要项目。</p>
                         <p>
-                            <a class="btn btn-lg btn-primary" href="#" role="button">READ MORE</a>
-                            <a class="caption-link" href="#" role="button">Inspinia Theme</a>
+                            <a class="btn btn-lg btn-primary" href="#" role="button">更多</a>
+                           <!--  <a class="caption-link" href="#" role="button">Inspinia Theme</a> -->
                         </p>
                     </div>
                     <div class="carousel-image wow zoomIn">
-                        <img src="{{asset('/vendor/index/img/laptop.png')}}" alt="laptop" />
+                        <img src="./vendor/index/img/laptop.png" alt="laptop" />
                     </div>
                 </div>
                 <!-- Set background for slide in css -->
@@ -95,11 +98,11 @@
             <div class="item">
                 <div class="container">
                     <div class="carousel-caption blank">
-                        <h1>We create meaningful
-                            <br/> interfaces that inspire.</h1>
-                        <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam.</p>
+                        <h1>我们的目标
+                            <br/> 创造新一代计算机时代</h1>
+                        <p>做新一代计算机人</p>
                         <p>
-                            <a class="btn btn-lg btn-primary" href="#" role="button">Learn more</a>
+                            <a class="btn btn-lg btn-primary" href="#" role="button">更多</a>
                         </p>
                     </div>
                 </div>
@@ -121,41 +124,37 @@
     <section id="features" class="container services">
         <div class="row">
             <div class="col-sm-3">
-                <h2>Full responsive</h2>
-                <p>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula
-                    ut id elit. Morbi leo risus.</p>
+                <h2>自主化</h2>
+                <p>学生自主组织学习交流活动，自觉遵守实验室的管理制度，并认真完成每一项实验室任务。</p>
                 <p>
-                    <a class="navy-link" href="#" role="button">Details &raquo;</a>
+                    <a class="navy-link" href="#" role="button">更多 &raquo;</a>
                 </p>
             </div>
             <div class="col-sm-3">
-                <h2>LESS/SASS</h2>
-                <p>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula
-                    ut id elit. Morbi leo risus.</p>
+                <h2>科学化</h2>
+                <p>实验室成员科学使用实验室器材，用系统科学的方式解决在实验室开发软件项目时所遇问题。</p>
                 <p>
-                    <a class="navy-link" href="#" role="button">Details &raquo;</a>
+                    <a class="navy-link" href="#" role="button">更多 &raquo;</a>
                 </p>
             </div>
             <div class="col-sm-3">
-                <h2>6 Charts Library</h2>
-                <p>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula
-                    ut id elit. Morbi leo risus.</p>
+                <h2>高素质</h2>
+                <p>实验室由导师进行管理和指导，研究生和本科生组成实验室的成员，有素质、有规划的共同完成实验室的多次项目。</p>
                 <p>
-                    <a class="navy-link" href="#" role="button">Details &raquo;</a>
+                    <a class="navy-link" href="#" role="button">更多 &raquo;</a>
                 </p>
             </div>
             <div class="col-sm-3">
-                <h2>Advanced Forms</h2>
-                <p>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula
-                    ut id elit. Morbi leo risus.</p>
+                <h2>管理化</h2>
+                <p>实验室实行由上至下的管理措施，导师带研究生，研究生带本科生，高年级带低年级的管理方式，紧凑有序。</p>
                 <p>
-                    <a class="navy-link" href="#" role="button">Details &raquo;</a>
+                    <a class="navy-link" href="#" role="button">更多 &raquo;</a>
                 </p>
             </div>
         </div>
     </section>
 
-    <section class="container features">
+    <!-- <section class="container features">
         <div class="row">
             <div class="col-lg-12 text-center">
                 <div class="navy-line"></div>
@@ -182,7 +181,7 @@
                 </div>
             </div>
             <div class="col-md-6 text-center  wow zoomIn">
-                <img src="{{asset('/vendor/index/img/perspective.png')}}" alt="dashboard" class="img-responsive">
+                <img src="img/perspective.png" alt="dashboard" class="img-responsive">
             </div>
             <div class="col-md-3 text-center wow fadeInRight">
                 <div>
@@ -216,42 +215,41 @@
                 <a href="" class="btn btn-primary">Learn more</a>
             </div>
             <div class="col-lg-6 text-right wow fadeInRight">
-                <img src="{{asset('/vendor/index/img/dashboard.png')}}" alt="dashboard" class="img-responsive pull-right">
+                <img src="img/dashboard.png" alt="dashboard" class="img-responsive pull-right">
             </div>
         </div>
-    </section>
+    </section> -->
 
     <section id="team" class="gray-section team">
         <div class="container">
             <div class="row m-b-lg">
                 <div class="col-lg-12 text-center">
                     <div class="navy-line"></div>
-                    <h1>Our Team</h1>
-                    <p>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod.</p>
+                    <h1>我们的队伍</h1>
+                    <p>现阶段 我们的实验室由指导老师付伟教授以及两位大三学长共同带领我们学习知识。</p>
                 </div>
             </div>
             <div class="row">
                 <div class="col-sm-4 wow fadeInLeft">
                     <div class="team-member">
-                        <img src="{{asset('/vendor/index/img/avatar3.jpg')}}" class="img-responsive img-circle img-small" alt="">
+                        <img src="./vendor/index/img/liujia.jpg" class="img-responsive img-circle img-small" alt="">
                         <h4>
-                            <span class="navy">Amelia</span> Smith</h4>
-                        <p>Lorem ipsum dolor sit amet, illum fastidii dissentias quo ne. Sea ne sint animal iisque, nam an soluta
-                            sensibus. </p>
+                            <span class="navy">刘家</span>  </h4>
+                        <p>蓝桥杯编程大赛2等奖、ACM CCPC编程比赛铜牌、负责过科技厅项目TRIZ比赛模块后台代码的编写。负责整个项目正常的上线运维工作。熟悉HTML5/CSS3/JS/AJAX/等前端开发技术，熟悉ES6标准； 熟悉http、tcp协议</p>
                         <ul class="list-inline social-icon">
                             <li>
                                 <a href="#">
-                                    <i class="fa fa-twitter"></i>
+                                    <i class="fa fa-qq"></i>
                                 </a>
                             </li>
                             <li>
                                 <a href="#">
-                                    <i class="fa fa-facebook"></i>
+                                    <i class="fa fa-weixin"></i>
                                 </a>
                             </li>
                             <li>
                                 <a href="#">
-                                    <i class="fa fa-linkedin"></i>
+                                    <i class="fa fa-github"></i>
                                 </a>
                             </li>
                         </ul>
@@ -259,25 +257,24 @@
                 </div>
                 <div class="col-sm-4">
                     <div class="team-member wow zoomIn">
-                        <img src="{{asset('/vendor/index/img/avatar1.jpg')}}" class="img-responsive img-circle" alt="">
+                        <img src="./vendor/index/img/avatar1.jpg" class="img-responsive img-circle" alt="">
                         <h4>
-                            <span class="navy">John</span> Novak</h4>
-                        <p>Lorem ipsum dolor sit amet, illum fastidii dissentias quo ne. Sea ne sint animal iisque, nam an soluta
-                            sensibus.</p>
+                            <span class="navy">付伟</span>  </h4>
+                        <p>现任哈尔滨师范大学计算机科学与信息工程学院软件工程系主任，计科院副教授，</p>
                         <ul class="list-inline social-icon">
                             <li>
                                 <a href="#">
-                                    <i class="fa fa-twitter"></i>
+                                    <i class="fa fa-qq"></i>
                                 </a>
                             </li>
                             <li>
                                 <a href="#">
-                                    <i class="fa fa-facebook"></i>
+                                    <i class="fa fa-weixin"></i>
                                 </a>
                             </li>
                             <li>
                                 <a href="#">
-                                    <i class="fa fa-linkedin"></i>
+                                    <i class="fa fa-github"></i>
                                 </a>
                             </li>
                         </ul>
@@ -285,25 +282,24 @@
                 </div>
                 <div class="col-sm-4 wow fadeInRight">
                     <div class="team-member">
-                        <img src="{{asset('/vendor/index/img/avatar2.jpg')}}" class="img-responsive img-circle img-small" alt="">
+                        <img src="./vendor/index/img/wangwei.jpg" class="img-responsive img-circle img-small" alt="">
                         <h4>
-                            <span class="navy">Peter</span> Johnson</h4>
-                        <p>Lorem ipsum dolor sit amet, illum fastidii dissentias quo ne. Sea ne sint animal iisque, nam an soluta
-                            sensibus.</p>
+                            <span class="navy">王伟</span>   </h4>
+                        <p>哈师大创新创业协会副主席，计科院创新创业协会主席兼学生会副主席。黑龙江省级“三好学生”荣誉称号。精通前端：CSS、jQuery、bootstrap、HTML5，后端：Java、Python数据分析与挖掘、web全栈开发</p>
                         <ul class="list-inline social-icon">
                             <li>
                                 <a href="#">
-                                    <i class="fa fa-twitter"></i>
+                                    <i class="fa fa-qq"></i>
                                 </a>
                             </li>
                             <li>
                                 <a href="#">
-                                    <i class="fa fa-facebook"></i>
+                                    <i class="fa fa-weixin"></i>
                                 </a>
                             </li>
                             <li>
                                 <a href="#">
-                                    <i class="fa fa-linkedin"></i>
+                                    <i class="fa fa-github"></i>
                                 </a>
                             </li>
                         </ul>
@@ -312,14 +308,13 @@
             </div>
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 text-center m-t-lg m-b-lg">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut eaque, laboriosam veritatis, quos non quis
-                        ad perspiciatis, totam corporis ea, alias ut unde.</p>
+                    <p>优秀的指导老师以及具有丰富的学术知识的学长是指引实验室学生在编程方面进步的好助手。</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="features">
+    <!-- <section class="features">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
@@ -338,7 +333,7 @@
                     <a href="" class="btn btn-primary">Learn more</a>
                 </div>
                 <div class="col-lg-6 text-right m-t-n-lg wow zoomIn">
-                    <img src="{{asset('/vendor/index/img/iphone.jpg')}}" class="img-responsive" alt="dashboard">
+                    <img src="img/iphone.jpg" class="img-responsive" alt="dashboard">
                 </div>
                 <div class="col-lg-3 features-text text-right wow fadeInRight">
                     <small>INSPINIA</small>
@@ -351,14 +346,14 @@
             </div>
         </div>
 
-    </section>
-    <section class="timeline gray-section">
+    </section> -->
+    <section id="timeline" class="timeline gray-section">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
                     <div class="navy-line"></div>
-                    <h1>Our workflow</h1>
-                    <p>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. </p>
+                    <h1>工作经历</h1>
+                    <p>在过去的一年里我们一起顺利完成了很多项目和任务</p>
                 </div>
             </div>
             <div class="row features-block">
@@ -371,14 +366,13 @@
                             </div>
 
                             <div class="vertical-timeline-content">
-                                <h2>Meeting</h2>
-                                <p>Conference on the sales results for the previous year. Monica please examine sales trends
-                                    in marketing and products. Below please find the current status of the sale.
+                                <h2>比赛准备</h2>
+                                <p>为了能在2018年度的ACM比赛中 我学院能获得良好的比赛成绩，我实验室有效的举行关于ACM的培训活动，并成立了哈师大ACM集训队社团，并进行了多次领导全院有意参加ACM比赛的学生的培训活动。
                                 </p>
                                 <a href="#" class="btn btn-xs btn-primary"> More info</a>
-                                <span class="vertical-date"> Today
+                                <span class="vertical-date"> Now
                                     <br/>
-                                    <small>Dec 24</small>
+                                    <small>from 2017.10.8</small>
                                 </span>
                             </div>
                         </div>
@@ -389,13 +383,12 @@
                             </div>
 
                             <div class="vertical-timeline-content">
-                                <h2>Decision</h2>
-                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
-                                    been the industry's standard dummy text ever since.</p>
+                                <h2>公司合作</h2>
+                                <p>从去年上半年开始我实验室与合辉科技有限公司共同合作进行项目实训。在沟通交流过程中，获得了很多公司实战开发的经验，实验室学生与公司成员共同合作开发过许多项目。</p>
                                 <a href="#" class="btn btn-xs btn-primary"> More info</a>
-                                <span class="vertical-date"> Tomorrow
+                                <span class="vertical-date"> Now
                                     <br/>
-                                    <small>Dec 26</small>
+                                    <small>from 2017上半年</small>
                                 </span>
                             </div>
                         </div>
@@ -406,13 +399,12 @@
                             </div>
 
                             <div class="vertical-timeline-content">
-                                <h2>Implementation</h2>
-                                <p>Go to shop and find some products. Lorem Ipsum is simply dummy text of the printing and typesetting
-                                    industry. Lorem Ipsum has been the industry's. </p>
+                                <h2>Web项目开发</h2>
+                                <p>实验室曾参与开发黑龙江技术情报研究院的Web官网页面，与网页设计方面实战技能上得到了很大的提升。 </p>
                                 <a href="#" class="btn btn-xs btn-primary"> More info</a>
-                                <span class="vertical-date"> Monday
+                                <span class="vertical-date"> 2017.6
                                     <br/>
-                                    <small>Jan 02</small>
+                                    <small>from 2017.4</small>
                                 </span>
                             </div>
                         </div>
@@ -425,7 +417,7 @@
 
     </section>
 
-    <section id="testimonials" class="navy-section testimonials" style="margin-top: 0">
+    <!-- <section id="testimonials" class="navy-section testimonials" style="margin-top: 0">
 
         <div class="container">
             <div class="row">
@@ -447,7 +439,10 @@
             </div>
         </div>
 
-    </section>
+    </section> -->
+
+
+<!-- 
     <section class="comments gray-section" style="margin-top: 0">
         <div class="container">
             <div class="row">
@@ -465,7 +460,7 @@
                     </div>
                     <div class="comments-avatar">
                         <a href="" class="pull-left">
-                            <img alt="image" src="{{asset('/vendor/index/img/avatar3.jpg')}}">
+                            <img alt="image" src="img/avatar3.jpg">
                         </a>
                         <div class="media-body">
                             <div class="commens-name">
@@ -483,7 +478,7 @@
                     </div>
                     <div class="comments-avatar">
                         <a href="" class="pull-left">
-                            <img alt="image" src="{{asset('/vendor/index/img/avatar1.jpg')}}">
+                            <img alt="image" src="img/avatar1.jpg">
                         </a>
                         <div class="media-body">
                             <div class="commens-name">
@@ -501,7 +496,7 @@
                     </div>
                     <div class="comments-avatar">
                         <a href="" class="pull-left">
-                            <img alt="image" src="{{asset('/vendor/index/img/avatar2.jpg')}}">
+                            <img alt="image" src="img/avatar2.jpg">
                         </a>
                         <div class="media-body">
                             <div class="commens-name">
@@ -517,8 +512,11 @@
             </div>
         </div>
 
-    </section>
-    <section class="features">
+    </section> -->
+
+
+
+<!--     <section class="features">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
@@ -565,8 +563,11 @@
             </div>
         </div>
 
-    </section>
-    <section id="pricing" class="pricing">
+    </section> -->
+
+
+
+<!--   <section id="pricing" class="pricing">
         <div class="container">
             <div class="row m-b-lg">
                 <div class="col-lg-12 text-center">
@@ -685,9 +686,11 @@
             </div>
         </div>
 
-    </section>
+    </section> -->
 
-    <section id="contact" class="gray-section contact">
+
+
+<!--     <section id="contact" class="gray-section contact">
         <div class="container">
             <div class="row m-b-lg">
                 <div class="col-lg-12 text-center">
@@ -749,15 +752,15 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> -->
 
-    <script src="{{asset('/vendor/index/js/jquery-2.1.1.js')}}"></script>
-    <script src="{{asset('/vendor/index/js/pace.min.js')}}"></script>
-    <script src="{{asset('/vendor/index/js/bootstrap.min.js')}}"></script>
-    <script src="{{asset('/vendor/index/js/classie.js')}}"></script>
-    <script src="{{asset('/vendor/index/js/cbpAnimatedHeader.js')}}"></script>
-    <script src="{{asset('/vendor/index/js/wow.min.js')}}"></script>
-    <script src="{{asset('/vendor/index/js/inspinia.js')}}"></script>
+    <script src="./vendor/index/js/jquery-2.1.1.js"></script>
+    <script src="./vendor/index/js/pace.min.js"></script>
+    <script src="./vendor/index/js/bootstrap.min.js"></script>
+    <script src="./vendor/index/js/classie.js"></script>
+    <script src="./vendor/index/js/cbpAnimatedHeader.js"></script>
+    <script src="./vendor/index/js/wow.min.js"></script>
+    <script src="./vendor/index/js/inspinia.js"></script>
 </body>
 
 </html>
