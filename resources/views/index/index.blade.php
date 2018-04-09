@@ -385,7 +385,7 @@
                             <div class="vertical-timeline-content">
                                 <h2>公司合作</h2>
                                 <p>从去年上半年开始我实验室与合辉科技有限公司共同合作进行项目实训。在沟通交流过程中，获得了很多公司实战开发的经验，实验室学生与公司成员共同合作开发过许多项目。</p>
-                                <a href="#" class="btn btn-xs btn-primary"> More info</a>
+                                <a href="http://hljppc.org.cn" class="btn btn-xs btn-primary"> More info</a>
                                 <span class="vertical-date"> Now
                                     <br/>
                                     <small>from 2017上半年</small>
@@ -401,7 +401,7 @@
                             <div class="vertical-timeline-content">
                                 <h2>Web项目开发</h2>
                                 <p>实验室曾参与开发黑龙江技术情报研究院的Web官网页面，与网页设计方面实战技能上得到了很大的提升。 </p>
-                                <a href="#" class="btn btn-xs btn-primary"> More info</a>
+                                <a href="http://hljppc.org.cn" class="btn btn-xs btn-primary"> More info</a>
                                 <span class="vertical-date"> 2017.6
                                     <br/>
                                     <small>from 2017.4</small>

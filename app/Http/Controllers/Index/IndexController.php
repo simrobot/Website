@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Extend\ClientInfo;
 use App\Extend\MS_Result;
 use App\Entity\AccessLog;
+use App\Extend\SM4;
 
 class IndexController extends Controller
 {
@@ -30,5 +31,16 @@ class IndexController extends Controller
         $eg->save();
 
         return view("index.index");
+    }
+    public function demo(){
+        $sm4 = new SM4();
+        //16字节的HEX编码字符串 32个hex字符
+        $re = $sm4->setKey('0123456789abcdeffedcba9876543210')
+            ->encrypt('0123456789abcdeffedcba9876543210');
+        print_r($re);
+        echo '-----';
+        $re1 = $sm4->decrypt($re);
+        print_r($re1);
+        
     }
 }

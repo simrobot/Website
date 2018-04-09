@@ -1,5 +1,5 @@
 <?php
-
+ 
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,9 +14,11 @@
 Route::get("","Index\IndexController@index");
 
 
-Route::get("demo","Admin\IndexController@demo");
+Route::get("demo","Index\IndexController@demo");
 Route::get("demo1","Admin\IndexController@demo1");
 Route::get("demo2","Admin\IndexController@demo2");
+Route::post('getuserlist','Api\UserController@list');
+
 
 // 接口
 Route::group(['prefix' => 'api','namespace' => 'Api'],function(){
@@ -25,6 +27,10 @@ Route::group(['prefix' => 'api','namespace' => 'Api'],function(){
 		Route::post('register','UserController@register');
 		Route::post('login','UserController@login');
 		Route::post('loginout','UserController@loginout');
+		Route::post('add','UserController@add');
+		Route::post('del','UserController@add');
+		Route::post('edit','UserController@edit');
+		
 	});
 });
 
@@ -37,5 +43,15 @@ Route::group(['prefix' => 'admin','namespace' => 'Admin','middleware' => ['Check
 	Route::get('','IndexController@index');
 	Route::group(['prefix' => 'sysconfig'],function(){
         Route::get('index','SysConfigController@index');
+	});
+	Route::group(['prefix' => 'log'],function(){
+        Route::get('access','LogController@access');
+	});
+	Route::group(['prefix' => 'user'],function(){
+        Route::get('index','UserController@index');
+        Route::get('add','UserController@add');
+        Route::get('list','UserController@demo');
+        Route::get('del','UserController@del');
+        Route::get('edit','UserController@edit');
 	});
 });

@@ -2,6 +2,14 @@
 
 return [
 
+
+    'kyleapi' =>[
+        'url' => env('KYLEAPI_URL','null'),
+        'id' => env('KYLEAPI_ID', null),
+        'secret' => env('KYLEAPI_SECRET', null),
+    ],
+
+
     /*
     |--------------------------------------------------------------------------
     | Application Name
@@ -160,6 +168,9 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
+
+        // Kozz\Laravel\Providers\Guzzle::class,
+
     ],
 
     /*
@@ -209,6 +220,7 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
         'Debugbar' => Barryvdh\Debugbar\Facade::class,
+        // 'Guzzle' => Kozz\Laravel\Facades\Guzzle::class,
 
     ],
 

@@ -21,8 +21,13 @@ class UserController extends Controller
         $ms->status = 1;
         $ms->message = "系统错误！";
 
+        
         $sEmail = $request->input("email");
         $sPassword = $request->input("password");
+        
+        // $user = User::where('email','=',$sEmail)->get()[0];
+        // $ms->data = $user;
+        // return $ms->toJson();
 
         // 判断用户是否存在
         if(!User::where('email','=',$sEmail)->exists()){
@@ -32,7 +37,7 @@ class UserController extends Controller
         }
 
         // 验证密码
-        $user = User::where('email','=',$sEmail)->find(1);
+        $user = User::where('email','=',$sEmail)->get()[0];
         if(strcmp( decrypt($user->password) , $sPassword)){
             $ms->status = 2;
             $ms->message = "密码错误！";
@@ -55,7 +60,11 @@ class UserController extends Controller
     }
     public function register(Request $request){
         $ms = new MS_Result;
-        $ms->status = 1;
+        $ms->status = 3;
+
+        $ms->message = "暂时不支持注册！";
+
+        return $ms->toJson();
 
         // 获取Ajax传入的数据
         $sName = $request->input("username");
@@ -120,5 +129,105 @@ class UserController extends Controller
 
         return $ms->toJson();    
     }
+    public function list(){
+        // $user = DB::table("user")->pluck("u_id","username","email","realname");
+        $users = User::select(DB::raw('u_id,username,email,realname'))->paginate(15);;
+        // $user = DB::select('select * from simrobot_user ');
+        
+        return $users;
+    }
+    public function add(Request $request){
+        $ms = new MS_Result;
+        $ms->status = 1;
+        $ms->message = "系统错误！";
+         
+        $sUsername = $request->input("username");
+        $sEmail = $request->input("email");
+        $sPassword = $request->input("password");
+
+        // 判断用户是否存在
+        if(User::where('username','=',$sUsername)->exists()){
+            $ms->status = 2;
+            $ms->message = "用户名已经存在！";
+            return $ms->toJson();
+        }
+
+        // 判断邮箱是否存在
+        if(User::where('email','=',$sEmail)->exists()){
+            $ms->status = 2;
+            $ms->message = "邮箱已经存在！";
+            return $ms->toJson();
+        }
+
+        $user = new User();
+        $user->username = $sUsername;
+        $user->email = $sEmail;
+        $user->password =encrypt($sPassword);
+        $user->g_id = 0;
+        $user->o_id = 0;
+        $user->r_id = 0;
+
+        if($user->save()){
+            $ms->status = 0;
+            $ms->message= "用户添加成功";
+            return $ms->toJson();
+        }
+
+        return $ms->toJson();
+    }
+    public function del(Request $request){
+        $ms = new MS_Result;
+        $ms->status = 1;
+        $ms->message = "系统错误！";
+         
+        $nId = $request->input("id");
+
+        // 判断用户是否存在
+        if(!User::where('u_id','=',$nId)->exists()){
+            $ms->status = 2;
+            $ms->message = "用户名不存在！";
+            return $ms->toJson();
+        }
+       $user =  DB::table('user')->where('u_id', '=', $nId)->get();
+       $ms->status = 0;
+       $ms->message = "用户删除成功";
+       $ms->data = $user;
+       return $ms->toJson(); 
+    }
+    public function edit(Request $request){
+        $ms = new MS_Result;
+        $ms->status = 1;
+        $ms->message = "系统错误！";
+         
+        $nId = $request->input("id");
+        $sUsername = $request->input("username");
+        $sRealname = $request->input("realname");
+        $sEmail = $request->input("email");
+        $sPassword = $request->input("password");
+        
+        if($sPassword==''){
+            $ms->status=2;
+            $ms->message = "密码不能为空";
+            return $ms->toJson();
+        }
+
+        // $user = DB::table('user')->where('u_id', '=', $nId)->get();
+        $user = User::where('u_id','=', $nId)->get()[0];
+        $user->username = $sUsername;
+        $user->realname = $sRealname;
+        $user->email = $sEmail;
+        $user->password =encrypt($sPassword);
+
+        if($user->save()){
+            $ms->status = 0;
+            $ms->message= "用户修改成功";
+            return $ms->toJson();
+        }
+
+        return $ms->toJson();
+
+    }
+
+    
 
 }
