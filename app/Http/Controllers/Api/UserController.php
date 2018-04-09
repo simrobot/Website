@@ -3,7 +3,10 @@ namespace App\Http\Controllers\Api;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Extend\Ms_Result;
+use App\Extend\ClientInfo;
+use App\Extend\MS_Result;
+use App\Entity\AccessLog;
+use App\Extend\SM4;
 use App\Entity\User;
 use Session;
 use DB;
