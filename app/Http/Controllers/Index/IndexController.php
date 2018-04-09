@@ -20,11 +20,11 @@ class IndexController extends Controller
         $eg->system = $ci->getSystem();
         $eg->browser = $ci->getBrowser()['name'];
         $eg->browser_version = $ci->getBrowser()['version'];
-        if( $ci->getAddress()){
-            $eg->country = $ci->getAddress()[0];
-            $eg->province = $ci->getAddress()[1];
-            $eg->city = $ci->getAddress()[2];
-        }
+        // if( $ci->getAddress()){
+        //     $eg->country = $ci->getAddress()[0];
+        //     $eg->province = $ci->getAddress()[1];
+        //     // $eg->city = $ci->getAddress()[2];
+        // }
         // dd($ci->getAddress());
         $eg->language = $ci->getLang();
         $eg->isrobot = $ci->isRobot();
