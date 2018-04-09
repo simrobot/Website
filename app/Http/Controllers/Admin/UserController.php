@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Entity\User;
 
-use App\Entity\MS_Result;
+use app\Entity\MS_Result;
 use DB;
 
 class UserController extends Controller
