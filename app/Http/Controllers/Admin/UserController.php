@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Entity\User;
 
+use App\Extend\ClientInfo;
 use App\Extend\MS_Result;
 use DB;
 
