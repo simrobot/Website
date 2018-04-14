@@ -134,8 +134,8 @@
 				},
 				success:function(data) {
 					if(data["status"]){
-						console.log(data["message"]);
-						alert(data["message"]);
+						alert(data['message']);
+                		location.pathname='/admin/user/index';
 					}
 					console.log(data);
 				},

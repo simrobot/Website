@@ -16,5 +16,3 @@ class MS_Result{
 		return json_encode($this , JSON_UNESCAPED_UNICODE);
 	}
 }
-
-?>

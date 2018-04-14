@@ -46,7 +46,8 @@ class IndexController extends Controller
     }
     
     public function demo(){
-
+        $ms = new MS_Result();
+        return $ms->toJson();
         $count = array();
         $count['ACCESS_NUMBER_TOTAL'] = AccessLog::count();
         $count['ACCESS_NUMBER_NOW_DAY'] = AccessLog::whereDate('created_at' , '>=' , date("Y-m-d",time()))->count();

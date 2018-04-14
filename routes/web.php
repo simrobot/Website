@@ -27,9 +27,9 @@ Route::group(['prefix' => 'api','namespace' => 'Api'],function(){
 	Route::group(['prefix' => 'user'],function(){
 		Route::post('register','UserController@register');
 		Route::post('login','UserController@login');
-		Route::post('loginout','UserController@loginout');
+		Route::get('loginout','UserController@loginout');
 		Route::post('add','UserController@add');
-		Route::post('del','UserController@add');
+		Route::get('del','UserController@del');
 		Route::post('edit','UserController@edit');
 		
 	});
@@ -49,6 +49,7 @@ Route::group(['prefix' => 'admin','namespace' => 'Admin','middleware' => ['Check
         Route::get('access','LogController@access');
 	});
 	Route::group(['prefix' => 'user'],function(){
+        Route::get('/','UserController@index');
         Route::get('index','UserController@index');
         Route::get('add','UserController@add');
         Route::get('list','UserController@demo');

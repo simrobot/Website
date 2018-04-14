@@ -11,12 +11,40 @@ use App\Entity\AccessLog;
 use App\Extend\SmService;
 use App\Extend\ClientInfo;
 use App\Extend\MS_Result;
-use App\Extend\SM4;
-
+ 
 use DB;
 
 class UserController extends Controller
 {
+    public function index(){
+        $ss = new SmService();
+        $users = User::select(DB::raw('u_id,username,email,realname'))->paginate(15);
+
+        foreach($users as $user){
+            $user->username = $ss->sm4_decode($user->username)->data;
+            $user->email = $ss->sm4_decode($user->email)->data;
+            $user->realname = $ss->sm4_decode($user->realname)->data;    
+        }
+
+        return view("admin.user.index")->with("users",$users);
+    }
+
+    public function edit(Request $request){
+        $ss = new SmService();        
+        $id = $request->input("id");
+
+        $user = User::where('u_id','=',$id)->first(['u_id','username','email','realname']);
+        $user->username = $ss->sm4_decode($user->username)->data;
+        $user->email = $ss->sm4_decode($user->email)->data;
+        $user->realname = $ss->sm4_decode($user->realname)->data;
+
+        return view('admin.user.edit')->with("user",$user);
+    }
+    public function add(){
+        return view ('admin.user.add');
+    }
+
+
     public function login(){
         return view("admin.login");
     }
@@ -24,4 +52,5 @@ class UserController extends Controller
     public function register(){
         return view("admin.register");
     }
+    
 }

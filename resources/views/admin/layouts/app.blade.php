@@ -1,10 +1,9 @@
 <!DOCTYPE html>
 <html>
-  
   <head>
     <meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="csrf-token" content="{{ csrf_token() }}">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>SimRobot Studio</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
@@ -28,25 +27,23 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic"></head>
   <!-- ADD THE CLASS fixed TO GET A FIXED HEADER AND SIDEBAR LAYOUT -->
   <!-- the fixed layout is not compatible with sidebar-mini -->
-  
+
   @yield('mycss')
 
   <body class="hold-transition skin-blue fixed sidebar-mini">
-    <!-- Site wrapper -->
+
+    <!-- 网站主体（开始） -->
     <div class="wrapper">
-      @include('admin.layouts.header')
-
+      @include('admin.layouts.header') 
       @include('admin.layouts.sidebar')
-      <div class="content-wrapper">
-        @yield("content")
+        <div class="content-wrapper">
+          @yield("content")
+        </div>
+        @include('admin.layouts.footer')
       </div>
+    </div> 
+    <!-- 网站主体（结束） -->
 
-      @include('admin.layouts.footer')
-      
-
-    </div>
-
-    <!-- ./wrapper -->
     <!-- jQuery 3 -->
     <script src="{{asset('/vendor/admin/bower_components/jquery/dist/jquery.min.js')}}"></script>
     <!-- Bootstrap 3.3.7 -->
@@ -59,6 +56,7 @@
     <script src="{{asset('/vendor/admin/dist/js/adminlte.min.js')}}"></script>
     <!-- AdminLTE for demo purposes -->
     <script src="{{asset('/vendor/admin/dist/js/demo.js')}}"></script>
+
     @yield('myjs')
 
   </body>

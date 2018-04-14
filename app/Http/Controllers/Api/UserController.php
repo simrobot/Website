@@ -9,7 +9,7 @@ use App\Extend\SmService;
 use App\Extend\SM4;
 use App\Entity\User;
 use App\Entity\AccessLog;
-use Session;
+use Session; 
 use DB;
 
 /*
@@ -61,13 +61,13 @@ class UserController extends Controller
         Session::put('isLogin',encrypt(1));
         return $ms->toJson();   
     }
+
     public function loginout(Request $request){
-        $ms = new MS_Result;
-        $ms->status = 0;
-        $ms->message = "注销成功！";
-        $ms->data = $request;
         Session::forget('isLogin');
-        return $ms->toJson();
+        return "<script>
+        alert('注销成功');
+        location.pathname='/admin/user/index';
+       </script>";
     }
     public function register(Request $request){
         $ms = new MS_Result;
@@ -144,33 +144,22 @@ class UserController extends Controller
             
         return $ms->toJson();    
     }
-    public function list(){
-        // $user = DB::table("user")->pluck("u_id","username","email","realname");
-        $users = User::select(DB::raw('u_id,username,email,realname'))->paginate(15);
-        foreach($users as $user){
-            $user->username = $ss->sm4_decode($user->username)->data;
-            $user->email = $ss->sm4_decode($user->email)->data;
-            $user->realname = $ss->sm4_decode($user->realname)->data;
-            
-        }
 
-        
-        // $user = DB::select('select * from simrobot_user ');
-        
-        return $users;
-    }
     public function add(Request $request){
+        $ss = new SmService();
         $ms = new MS_Result;
         $ms->status = 1;
         $ms->message = "系统错误！";
-        
-        $ss = new SmService();
+        $ms->status = 0;
+   
 
         $sUsername = $request->input("username");
+        $sRealname = $request->input("realname");
         $sEmail = $request->input("email");
         $sPassword = $request->input("password");
 
         $sUsername = $ss->sm4_encode($sUsername)->data;
+        $sRealname = $ss->sm4_encode($sRealname)->data;
         $sEmail = $ss->sm4_encode($sEmail)->data;
         $sPassword = $ss->sm4_encode($sPassword)->data;
 
@@ -190,6 +179,7 @@ class UserController extends Controller
 
         $user = new User();
         $user->username = $sUsername;
+        $user->realname = $sRealname;
         $user->email = $sEmail;
         $user->password = $sPassword;
         $user->g_id = 0;
@@ -205,31 +195,24 @@ class UserController extends Controller
         return $ms->toJson();
     }
     public function del(Request $request){
-        $ms = new MS_Result;
-        $ms->status = 1;
-        $ms->message = "系统错误！";
-         
-        $nId = $request->input("id");
-
-        // 判断用户是否存在
-        if(!User::where('u_id','=',$nId)->exists()){
-            $ms->status = 2;
-            $ms->message = "用户名不存在！";
-            return $ms->toJson();
-        }
-       $user =  DB::table('user')->where('u_id', '=', $nId)->get();
-       $ms->status = 0;
-       $ms->message = "用户删除成功";
-       $ms->data = $user;
-       return $ms->toJson(); 
+        $id = $request->input('id');
+        $res = User::where('u_id','=', $id)->delete();
+       
+       if($res){
+           return "<script>
+            alert('删除成功');
+            location.pathname='/admin/user/index';
+           </script>";
+       }
     }
+
     public function edit(Request $request){
-        $ms = new MS_Result;
+        $ss = new SmService();
+        $ms = new MS_Result();
         $ms->status = 1;
         $ms->message = "系统错误！";
-        $ss = new SmService();
-         
         $nId = $request->input("id");
+    
         
         $sUsername = $request->input("username");
         $sRealname = $request->input("realname");
@@ -243,17 +226,11 @@ class UserController extends Controller
         }
 
         // $user = DB::table('user')->where('u_id', '=', $nId)->get();
-        $user = User::where('u_id','=', $nId)->get()[0];
-
+        $user = User::where('u_id','=', $nId)->first();        
         $user->username =  $ss->sm4_encode($sUsername)->data;
         $user->realname =  $ss->sm4_encode($sRealname)->data;
         $user->email =  $ss->sm4_encode($sEmail)->data;
         $user->password =  $ss->sm4_encode($sPassword)->data;
-
-        // $user->username = $sUsername;
-        // $user->realname = $sRealname;
-        // $user->email = $sEmail;
-        // $user->password =encrypt($sPassword);
 
         if($user->save()){
             $ms->status = 0;
