@@ -15,6 +15,7 @@ Route::get("","Index\IndexController@index");
 
 
 Route::get("demo","Index\IndexController@demo");
+Route::get("sm","Index\IndexController@sm");
 Route::get("demo1","Admin\IndexController@demo1");
 Route::get("demo2","Admin\IndexController@demo2");
 Route::post('getuserlist','Api\UserController@list');

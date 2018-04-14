@@ -105,6 +105,7 @@ class UserController extends Controller
             return $ms->toJson();
         }
 
+
         //禁止注册 
         $ms->status = 2;
         $ms->message = "暂未开放注册!";

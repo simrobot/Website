@@ -8,6 +8,10 @@ use App\Extend\ClientInfo;
 use App\Extend\MS_Result;
 use App\Entity\AccessLog;
 use App\Extend\SM4;
+use App\Extend\SmData;
+use App\Extend\SmService;
+use Guzzle;
+
 
 class IndexController extends Controller
 {
@@ -32,15 +36,17 @@ class IndexController extends Controller
 
         return view("index.index");
     }
+    
+    public function sm(){
+        $ms = new MS_Result();
+        $ss = new SmService();
+        $res = $ss->sm4_encode("asd");
+        $res1 = $ss->sm4_decode($res->data);
+        // $res1 = $ss->sm4_decode()
+        dd($res1);
+    }
+    
     public function demo(){
-        $sm4 = new SM4();
-        //16字节的HEX编码字符串 32个hex字符
-        $re = $sm4->setKey('0123456789abcdeffedcba9876543210')
-            ->encrypt('0123456789abcdeffedcba9876543210');
-        print_r($re);
-        echo '-----';
-        $re1 = $sm4->decrypt($re);
-        print_r($re1);
-        
+        dd("demo");
     }
 }
