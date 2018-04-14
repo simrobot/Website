@@ -34,8 +34,15 @@
   <body class="hold-transition skin-blue fixed sidebar-mini">
     <!-- Site wrapper -->
     <div class="wrapper">
-    
+      @include('admin.layouts.header')
 
+      @include('admin.layouts.sidebar')
+      <div class="content-wrapper">
+        @yield("content")
+      </div>
+
+      @include('admin.layouts.footer')
+      
 
     </div>
 
@@ -52,51 +59,8 @@
     <script src="{{asset('/vendor/admin/dist/js/adminlte.min.js')}}"></script>
     <!-- AdminLTE for demo purposes -->
     <script src="{{asset('/vendor/admin/dist/js/demo.js')}}"></script>
-
     @yield('myjs')
 
-
-    <script>
-
-
-	$(function(){
-		$("#loginout").click(function(){
-			loginout();
-		})
-	})
-
-     function loginout(){
-		
-		$.ajax({ 
-			url:'/api/user/loginout',
-			type:"POST",
-			cache: false,
-			dataType: 'JSON',
-			data:{ 
-				email:'sEmail',
-				password:'sPassword'
-			},
-			headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
-			success:function(data) {
-				// status=0 操作成功
-				if(!data['status']){
-					alert(data['message']);
-					location.pathname='/admin/login';
-				}else{
-					// status !=0 操作失败
-					alert(data['message']);
-				}
-
-			},
-			error:function() { 
-				//系统错误
-				console.log('系统错误');
-			}
-		});
-
-		return false;
-	}
-    </script>
   </body>
 
 </html>
