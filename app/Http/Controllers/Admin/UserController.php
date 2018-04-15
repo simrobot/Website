@@ -30,6 +30,9 @@ class UserController extends Controller
 
         return view("admin.user.index", ['users' => $users]);
     }
+    public function register(){
+        return view("admin.register");
+    }
 
     public function edit(Request $request){
         $ss = new SmService();        
