@@ -3,7 +3,7 @@ namespace App\Http\Controllers\Api;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Extend\Ms_Result;
+use App\Extend\MS_Result;
 use App\Entity\User;
 use Session;
 use DB;
@@ -17,11 +17,10 @@ use DB;
 class UserController extends Controller
 {
     public function login(Request $request){
-        $ms = new MS_Result();
+        $ms = new MS_Result();                 
         $ms->status = 1;
         $ms->message = "系统错误！";
 
-        
         $sEmail = $request->input("email");
         $sPassword = $request->input("password");
         
