@@ -175,7 +175,7 @@ class UserController extends Controller
         $sUsername = $ss->sm4_encode($sUsername)->data;
         $sEmail = $ss->sm4_encode($sEmail)->data;
         $sPassword = $ss->sm4_encode($sPassword)->data;
-        $sRealname = $ss->sm4_encode($sRealname)->data;       
+        $sRealname = $ss->sm4_encode($sRealname)->data;
 
         // 判断用户是否存在
         if(User::where('username','=',$sUsername)->exists()){
