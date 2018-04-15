@@ -54,16 +54,4 @@ class UserController extends Controller
     public function register(){
         return view("admin.register");
     }
-    public function edit(Request $request){
-        $ss = new SmService();
-        $id = $request->input('id');
-
-        $user = User::select(DB::raw('u_id,username,email,realname'))->where('u_id','=',$id)->get()[0];
-        $user->username = $ss->sm4_decode($user->username)->data;
-        $user->email = $ss->sm4_decode($user->email)->data;
-        $user->realname = $ss->sm4_decode($user->realname)->data;
-
-        return view('admin.user.edit')->with('user',$user);
-
-    }
 }
