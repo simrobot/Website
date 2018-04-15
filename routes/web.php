@@ -1,5 +1,5 @@
 <?php
- 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -15,7 +15,6 @@ Route::get("","Index\IndexController@index");
 
 
 Route::get("demo","Index\IndexController@demo");
-Route::get("sm","Index\IndexController@sm");
 Route::get("demo1","Admin\IndexController@demo1");
 Route::get("demo2","Admin\IndexController@demo2");
 Route::post('getuserlist','Api\UserController@list');
@@ -27,9 +26,9 @@ Route::group(['prefix' => 'api','namespace' => 'Api'],function(){
 	Route::group(['prefix' => 'user'],function(){
 		Route::post('register','UserController@register');
 		Route::post('login','UserController@login');
-		Route::get('loginout','UserController@loginout');
+		Route::post('loginout','UserController@loginout');
 		Route::post('add','UserController@add');
-		Route::get('del','UserController@del');
+		Route::post('del','UserController@add');
 		Route::post('edit','UserController@edit');
 		
 	});
@@ -49,7 +48,6 @@ Route::group(['prefix' => 'admin','namespace' => 'Admin','middleware' => ['Check
         Route::get('access','LogController@access');
 	});
 	Route::group(['prefix' => 'user'],function(){
-        Route::get('/','UserController@index');
         Route::get('index','UserController@index');
         Route::get('add','UserController@add');
         Route::get('list','UserController@demo');

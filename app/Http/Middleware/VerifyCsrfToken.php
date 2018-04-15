@@ -13,8 +13,7 @@ class VerifyCsrfToken extends Middleware
      */
     protected $except = [
         //
-        "getuserlist",
-        "http://localhost:8080/SMS4/*"
+        "getuserlist"
 
     ];
 }

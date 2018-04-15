@@ -8,28 +8,9 @@
     <meta name="author" content="">
     <!-- Add Your favicon here -->
     <!--<link rel="icon" href="img/favicon.ico">-->
+    <title>INSPINIA - Landing Page</title>
 
-
-    <title>SimRobot Studio</title>
-    <meta property="og:locale" content="zn_CH">
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="SimRobot Studio 🚀">
-    <meta property="og:description" content="我们是一个软件开发实验室 💯">
-    <meta property="og:url" content="kyle.ren">
-    <meta property="og:site_name" content="SimRobot 实验室首页 🚀">
-    <meta property="article:author" content="https://github.com/kayles">
-    <meta property="article:publisher" content="https://github.com/kayles">
-    <meta property="article:tag" content="SimRobot Studio">
-    <meta property="article:tag" content="SimRobot Studio Developer">
-    <meta property="article:tag" content="SimRobot Studio Code Power User">
-    <meta property="article:tag" content="SimRobot Studio Power User">
-    <meta property="article:tag" content="SimRobot Studio Power Developer">
-    <meta property="article:section" content="JavaScript">
-    <meta property="article:published_time" content="2018-01-01T12:55:05+00:00">
-    <meta property="article:modified_time" content="2018-01-01T14:08:39+00:00">
-    <meta property="og:updated_time" content="2018-03-20T14:08:39+00:00">
-    <meta property="og:image:width" content="1920">
-    <meta property="og:image:height" content="1059">
+    <title>SimRobot</title>
 
     <!-- Bootstrap core CSS -->
     <link href="./vendor/index/css/bootstrap.min.css" rel="stylesheet">

@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html>
+  
   <head>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="csrf-token" content="{{ csrf_token() }}">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="csrf-token" content="{{ csrf_token() }}">
     <title>SimRobot Studio</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
@@ -27,23 +28,18 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic"></head>
   <!-- ADD THE CLASS fixed TO GET A FIXED HEADER AND SIDEBAR LAYOUT -->
   <!-- the fixed layout is not compatible with sidebar-mini -->
-
+  
   @yield('mycss')
 
   <body class="hold-transition skin-blue fixed sidebar-mini">
-
-    <!-- 网站主体（开始） -->
+    <!-- Site wrapper -->
     <div class="wrapper">
-      @include('admin.layouts.header') 
-      @include('admin.layouts.sidebar')
-        <div class="content-wrapper">
-          @yield("content")
-        </div>
-        @include('admin.layouts.footer')
-      </div>
-    </div> 
-    <!-- 网站主体（结束） -->
+    
 
+
+    </div>
+
+    <!-- ./wrapper -->
     <!-- jQuery 3 -->
     <script src="{{asset('/vendor/admin/bower_components/jquery/dist/jquery.min.js')}}"></script>
     <!-- Bootstrap 3.3.7 -->
@@ -59,6 +55,48 @@
 
     @yield('myjs')
 
+
+    <script>
+
+
+	$(function(){
+		$("#loginout").click(function(){
+			loginout();
+		})
+	})
+
+     function loginout(){
+		
+		$.ajax({ 
+			url:'/api/user/loginout',
+			type:"POST",
+			cache: false,
+			dataType: 'JSON',
+			data:{ 
+				email:'sEmail',
+				password:'sPassword'
+			},
+			headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
+			success:function(data) {
+				// status=0 操作成功
+				if(!data['status']){
+					alert(data['message']);
+					location.pathname='/admin/login';
+				}else{
+					// status !=0 操作失败
+					alert(data['message']);
+				}
+
+			},
+			error:function() { 
+				//系统错误
+				console.log('系统错误');
+			}
+		});
+
+		return false;
+	}
+    </script>
   </body>
 
 </html>

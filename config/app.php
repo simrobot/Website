@@ -169,7 +169,7 @@ return [
         App\Providers\RouteServiceProvider::class,
 
 
-        Kozz\Laravel\Providers\Guzzle::class,
+        // Kozz\Laravel\Providers\Guzzle::class,
 
     ],
 
@@ -220,7 +220,7 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
         'Debugbar' => Barryvdh\Debugbar\Facade::class,
-        'Guzzle' => Kozz\Laravel\Facades\Guzzle::class,
+        // 'Guzzle' => Kozz\Laravel\Facades\Guzzle::class,
 
     ],
 
