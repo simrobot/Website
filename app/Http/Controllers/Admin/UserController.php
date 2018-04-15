@@ -8,6 +8,7 @@ use App\Http\Controllers\Controller;
 use App\Entity\User;
 use App\Entity\AccessLog;
 
+use App\Extend\SmService;
 use App\Extend\ClientInfo;
 use App\Extend\MS_Result;
 use App\Extend\SM4;
@@ -18,7 +19,16 @@ class UserController extends Controller
 {
     public function index(){
         $user = new User();
-        $users = User::select(DB::raw('u_id,username,email,realname'))->paginate(15);        
+        $ss = new SmService();
+        $users = User::select(DB::raw('u_id,username,email,realname'))->paginate(15);  
+        
+        foreach($users as $user){
+            $user->username = $ss->sm4_decode($user->username)->data;
+            $user->email = $ss->sm4_decode($user->email)->data;
+            $user->realname = $ss->sm4_decode($user->realname)->data;
+            
+        }
+
         return view("admin.user.index", ['users' => $users]);
     }
     public function add(){
@@ -46,9 +56,14 @@ class UserController extends Controller
         return view("admin.register");
     }
     public function edit(Request $request){
-        $id = $request->input();
+        $ss = new SmService();
+        $id = $request->input('id');
+
         $user = User::select(DB::raw('u_id,username,email,realname'))->where('u_id','=',$id)->get()[0];
-        // dd($user);
+        $user->username = $ss->sm4_decode($user->username)->data;
+        $user->email = $ss->sm4_decode($user->email)->data;
+        $user->realname = $ss->sm4_decode($user->realname)->data;
+
         return view('admin.user.edit')->with('user',$user);
 
     }

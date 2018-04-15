@@ -7,10 +7,9 @@ use App\Http\Controllers\Controller;
 use App\Extend\ClientInfo;
 use App\Extend\MS_Result;
 use App\Entity\AccessLog;
-use App\Extend\SM4;
-use App\Extend\SmData;
 use App\Extend\SmService;
-use Guzzle;
+use App\Entity\User;
+use DB;
 
 
 class IndexController extends Controller
@@ -47,6 +46,17 @@ class IndexController extends Controller
     }
     
     public function demo(){
-        dd("demo");
+        $ss = new SmService();
+        $users = User::select(DB::raw('u_id,username,email,realname'))->paginate(15);
+        
+        foreach($users as $user){
+            // dump($ss->sm4_decode($user->username)->data);
+            $user->username = $ss->sm4_decode($user->username)->data;
+            $user->email = $ss->sm4_decode($user->email)->data;
+            $user->realname = $ss->sm4_decode($user->realname)->data;
+            
+        }
+
+        dd($user);
     }
 }

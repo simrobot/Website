@@ -8,7 +8,6 @@
     <meta name="author" content="">
     <!-- Add Your favicon here -->
     <!--<link rel="icon" href="img/favicon.ico">-->
-    <title>INSPINIA - Landing Page</title>
 
     <title>SimRobot</title>
 
