@@ -61,13 +61,13 @@ class UserController extends Controller
         Session::put('isLogin',encrypt(1));
         return $ms->toJson();   
     }
+
     public function loginout(Request $request){
-        $ms = new MS_Result;
-        $ms->status = 0;
-        $ms->message = "注销成功！";
-        $ms->data = $request;
         Session::forget('isLogin');
-        return $ms->toJson();
+        return "<script>
+        alert('注销成功');
+        location.pathname='/admin/user/index';
+       </script>";
     }
     public function register(Request $request){
         $ms = new MS_Result;
@@ -160,6 +160,7 @@ class UserController extends Controller
         return $users;
     }
     public function add(Request $request){
+        $ss = new SmService();
         $ms = new MS_Result;
         $ms->status = 1;
         $ms->message = "系统错误！";
@@ -167,6 +168,7 @@ class UserController extends Controller
         $ss = new SmService();
 
         $sUsername = $request->input("username");
+        $sRealname = $request->input("realname");
         $sEmail = $request->input("email");
         $sPassword = $request->input("password");
 
@@ -190,6 +192,7 @@ class UserController extends Controller
 
         $user = new User();
         $user->username = $sUsername;
+        $user->realname = $sRealname;
         $user->email = $sEmail;
         $user->password = $sPassword;
         $user->g_id = 0;
@@ -205,26 +208,20 @@ class UserController extends Controller
         return $ms->toJson();
     }
     public function del(Request $request){
-        $ms = new MS_Result;
-        $ms->status = 1;
-        $ms->message = "系统错误！";
-         
-        $nId = $request->input("id");
-
-        // 判断用户是否存在
-        if(!User::where('u_id','=',$nId)->exists()){
-            $ms->status = 2;
-            $ms->message = "用户名不存在！";
-            return $ms->toJson();
-        }
-       $user =  DB::table('user')->where('u_id', '=', $nId)->get();
-       $ms->status = 0;
-       $ms->message = "用户删除成功";
-       $ms->data = $user;
-       return $ms->toJson(); 
+        $id = $request->input('id');
+        $res = User::where('u_id','=', $id)->delete();
+       
+       if($res){
+           return "<script>
+            alert('删除成功');
+            location.pathname='/admin/user/index';
+           </script>";
+       }
     }
+
     public function edit(Request $request){
-        $ms = new MS_Result;
+        $ss = new SmService();
+        $ms = new MS_Result();
         $ms->status = 1;
         $ms->message = "系统错误！";
         $ss = new SmService();
